@@ -1,5 +1,4 @@
-import numpy as np
-from constants import pi, Nc, nf, M, O3s18, alpha_s
+from constants import pi, Nc, nf, M, O3s18, alpha_s, alpha_em
 
 # D1 : unpolarized quark, unpolarized J/psi
 def D1(z,kT,mu):
