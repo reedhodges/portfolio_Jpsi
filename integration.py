@@ -1,5 +1,11 @@
-from numpy import np
-import scipy.tplquad as tplquad
+from math import sin
+from scipy import integrate
+import numpy as np
 
-def bin_integrate(sigma,bin,PT):
-    return tplquad(lambda x, z, Q: sigma(x,z,Q,PT), bin[2,0], bin[2,1], bin[1,0], bin[1,1], bin[0,0], bin[0,1])
+# Function with four separate arguments
+def f(x, y, z):
+    return sin(x * y * z)
+
+ans, _ = integrate.tplquad(f, 1, 2, 2, 3, 0, 1)
+
+print(ans)
