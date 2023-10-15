@@ -1,0 +1,412 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15416,        404]
+NotebookOptionsPosition[     13369,        362]
+NotebookOutlinePosition[     13768,        378]
+CellTagsIndexPosition[     13725,        375]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["This requires ManeParse and WW-SIDIS to be installed.", "Text",
+ CellChangeTimes->{{3.906376304241645*^9, 
+  3.906376332864806*^9}},ExpressionUUID->"7b323103-af08-4ccc-97a4-\
+611d680dc525"],
+
+Cell["https://ncteq.hepforge.org/mma/index.html", "Text",
+ CellChangeTimes->{
+  3.906376347225294*^9},ExpressionUUID->"c0690014-20ef-43aa-bbdc-\
+ea53773707ff"],
+
+Cell["https://github.com/prokudin/WW-SIDIS", "Text",
+ CellChangeTimes->{
+  3.906376335506559*^9},ExpressionUUID->"dc5a2c66-1051-4d64-b074-\
+0ab09cb00849"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"gluon", " ", 
+    RowBox[{"PDF", ":", " ", 
+     RowBox[{"NNPDF", " ", "collaboration"}]}]}], ",", " ", 
+   RowBox[{"via", " ", "ManeParse"}]}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.9063763544900208`*^9, 
+  3.906376374917601*^9}},ExpressionUUID->"15f3211d-72c1-4877-8838-\
+ee495e7164cc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gPDF", "=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "Q", ",", 
+        RowBox[{"pdfFunction", "[", 
+         RowBox[{"5", ",", "0", ",", "x", ",", "Q"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0.01", ",", "1.0", ",", 
+        FractionBox[
+         RowBox[{"1.0", "-", "0.01"}], "200"]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Q", ",", "5", ",", "50", ",", 
+        FractionBox[
+         RowBox[{"50.0", "-", "5.0"}], "200"]}], "}"}]}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.906376123974187*^9, 3.9063762203603153`*^9}, {
+  3.906376378697198*^9, 3.906376469824544*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"b8469a7c-ecb8-4fc4-97f5-8dcb211bf027"],
+
+Cell[BoxData[
+ TemplateBox[<|"shortenedBoxes" -> TagBox[
+     RowBox[{"{", 
+       RowBox[{
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.`", ",", "560.5516677986042`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.225`", ",", "568.5640807042682`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.45`", ",", "575.7973750165412`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.675`", ",", "582.3523204948822`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.9`", ",", "588.32968689875`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.125`", ",", "593.8302439876032`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.35`", ",", "599.0011363980769`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.575`", ",", "604.0076151656434`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.8`", ",", "608.7535173119105`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "7.025`", ",", "613.259008034465`"}], "}"}], 
+         ",", 
+         TemplateBox[{"40382"}, "OutputSizeLimit`Skeleton"], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.2`", ",", "0.`"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.425000000000004`", ",", "0.`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.65`", ",", "0.`"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.875`", ",", "0.`"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.1`", ",", "0.`"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.325`", ",", "0.`"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.550000000000004`", ",", "0.`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.775`", ",", "0.`"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "50.`", ",", "0.`"}], "}"}]}], "}"}], 
+     Short[#, 8]& ], "line" -> 37, "sessionID" -> 31397419583029220601, 
+   "byteCount" -> 4848200, "size" -> 8, "stored" -> False, "expr" -> 
+   Missing["NotAvailable", "NewSessionID"], "wrap" -> OutputSizeLimit`Defer, 
+   "version" -> 1|>,
+  "OutputSizeLimitTemplate"]], "Output",
+ CellChangeTimes->{{3.906376170321479*^9, 3.906376202210554*^9}, {
+   3.90637638304074*^9, 3.906376412011716*^9}, {3.906376450889509*^9, 
+   3.906376463353608*^9}, 3.906376517951603*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"efe11707-ce40-4f6a-843e-a505d5681820"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<pdf_data/gPDF.csv\>\""}], ",", "gPDF"}], "]"}]], "Input",
+ CellChangeTimes->{{3.906376461180932*^9, 3.9063765077591267`*^9}, {
+  3.906376690986575*^9, 
+  3.906376746466819*^9}},ExpressionUUID->"585dee04-dae7-4e94-af00-\
+bf8edc1e5989"],
+
+Cell[BoxData["\<\"/Users/reedhodges/Desktop/gPDF.csv\"\>"], "Output",
+ CellChangeTimes->{3.906376526023785*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"9a455397-0082-4544-9c03-52884e40753a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"up", " ", "and", " ", "down", " ", "quark", " ", 
+   RowBox[{"PDFs", ":", " ", 
+    RowBox[{
+     RowBox[{"from", " ", "WW"}], "-", "SIDIS"}]}]}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.906376549818939*^9, 
+  3.906376562684155*^9}},ExpressionUUID->"0f35eb74-fbbe-4b0c-9ced-\
+66a3623e0958"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uPDF", "=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "Q", ",", 
+        RowBox[{"f1u", "[", 
+         RowBox[{"x", ",", 
+          SuperscriptBox["Q", "2"]}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0.01", ",", "1.0", ",", 
+        FractionBox[
+         RowBox[{"1.0", "-", "0.01"}], "200"]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Q", ",", "5", ",", "50", ",", 
+        FractionBox[
+         RowBox[{"50.0", "-", "5.0"}], "200"]}], "}"}]}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.906376571867198*^9, 3.9063765802786837`*^9}},
+ CellLabel->"In[39]:=",ExpressionUUID->"b99361e5-617a-4c12-883e-97bf2fccb068"],
+
+Cell[BoxData[
+ TemplateBox[<|"shortenedBoxes" -> TagBox[
+     RowBox[{"{", 
+       RowBox[{
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.`", ",", "44.37400000000001`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.225`", ",", "44.62504088155596`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.45`", ",", "44.86532937534332`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.675`", ",", "45.0956046753886`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.9`", ",", "45.316534860817285`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.125`", ",", "45.52872550659531`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.35`", ",", "45.73272706839501`"}], "}"}], 
+         ",", 
+         TemplateBox[{"40387"}, "OutputSizeLimit`Skeleton"], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.65`", ",", "7.623296525288703`*^-21"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.875`", ",", 
+             RowBox[{"-", "1.6940658945086007`*^-21"}]}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.1`", ",", "1.6940658945086007`*^-21"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.325`", ",", "8.470329472543003`*^-22"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"1.`", ",", "49.550000000000004`", ",", 
+             "8.470329472543003`*^-21"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.775`", ",", "4.235164736271502`*^-21"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "50.`", ",", "1.6940658945086007`*^-21"}], 
+           "}"}]}], "}"}], Short[#, 8]& ], "line" -> 39, "sessionID" -> 
+   31397419583029220601, "byteCount" -> 4848200, "size" -> 8, "stored" -> 
+   False, "expr" -> Missing["NotAvailable", "NewSessionID"], "wrap" -> 
+   OutputSizeLimit`Defer, "version" -> 1|>,
+  "OutputSizeLimitTemplate"]], "Output",
+ CellChangeTimes->{3.906376603881942*^9},
+ CellLabel->"Out[39]=",ExpressionUUID->"b125d6db-aa35-4e2b-88d5-7b5dba8f7904"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dPDF", "=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "Q", ",", 
+        RowBox[{"f1u", "[", 
+         RowBox[{"x", ",", 
+          SuperscriptBox["Q", "2"]}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0.01", ",", "1.0", ",", 
+        FractionBox[
+         RowBox[{"1.0", "-", "0.01"}], "200"]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Q", ",", "5", ",", "50", ",", 
+        FractionBox[
+         RowBox[{"50.0", "-", "5.0"}], "200"]}], "}"}]}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.906376594275476*^9, 3.906376594454577*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"4bb5e168-92b3-4bfc-9943-ecc5f72d5a1b"],
+
+Cell[BoxData[
+ TemplateBox[<|"shortenedBoxes" -> TagBox[
+     RowBox[{"{", 
+       RowBox[{
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.`", ",", "44.37400000000001`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.225`", ",", "44.62504088155596`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.45`", ",", "44.86532937534332`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.675`", ",", "45.0956046753886`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "5.9`", ",", "45.316534860817285`"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.125`", ",", "45.52872550659531`"}], "}"}],
+          ",", 
+         RowBox[{"{", 
+           RowBox[{"0.01`", ",", "6.35`", ",", "45.73272706839501`"}], "}"}], 
+         ",", 
+         TemplateBox[{"40387"}, "OutputSizeLimit`Skeleton"], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.65`", ",", "7.623296525288703`*^-21"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "48.875`", ",", 
+             RowBox[{"-", "1.6940658945086007`*^-21"}]}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.1`", ",", "1.6940658945086007`*^-21"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.325`", ",", "8.470329472543003`*^-22"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           
+           RowBox[{"1.`", ",", "49.550000000000004`", ",", 
+             "8.470329472543003`*^-21"}], "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "49.775`", ",", "4.235164736271502`*^-21"}], 
+           "}"}], ",", 
+         RowBox[{"{", 
+           RowBox[{"1.`", ",", "50.`", ",", "1.6940658945086007`*^-21"}], 
+           "}"}]}], "}"}], Short[#, 8]& ], "line" -> 40, "sessionID" -> 
+   31397419583029220601, "byteCount" -> 4848200, "size" -> 8, "stored" -> 
+   False, "expr" -> Missing["NotAvailable", "NewSessionID"], "wrap" -> 
+   OutputSizeLimit`Defer, "version" -> 1|>,
+  "OutputSizeLimitTemplate"]], "Output",
+ CellChangeTimes->{3.906376614130123*^9},
+ CellLabel->"Out[40]=",ExpressionUUID->"27c095e9-80fe-4a4a-a1dd-c33200a9a84f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<pdf_data/uPDF.csv\>\""}], ",", "uPDF"}], "]"}]], "Input",
+ CellChangeTimes->{{3.906376461180932*^9, 3.9063765077591267`*^9}, {
+   3.906376611281437*^9, 3.906376612609787*^9}, 
+   3.906376751418569*^9},ExpressionUUID->"e8b9eec7-63c1-42fa-825a-\
+a8436f0e1783"],
+
+Cell[BoxData["\<\"/Users/reedhodges/Desktop/uPDF.csv\"\>"], "Output",
+ CellChangeTimes->{3.906376526023785*^9, 3.906376622663499*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"8b8ae741-18b8-43eb-80cf-529f46f5b161"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<pdf_data/dPDF.csv\>\""}], ",", "dPDF"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9063766181468773`*^9, 3.906376620328291*^9}, 
+   3.906376752994639*^9},ExpressionUUID->"46d9d1df-8f00-4b8c-b56c-\
+9b154f61fb0f"],
+
+Cell[BoxData["\<\"/Users/reedhodges/Desktop/dPDF.csv\"\>"], "Output",
+ CellChangeTimes->{3.9063766247716*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"34104a93-af75-429d-a8d2-e634fa016611"]
+}, Open  ]]
+},
+WindowSize->{808, 843},
+WindowMargins->{{-1093, Automatic}, {20, Automatic}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"13a84513-9dfa-4488-b7d6-3ebba09d44c6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 195, 3, 35, "Text",ExpressionUUID->"7b323103-af08-4ccc-97a4-611d680dc525"],
+Cell[756, 25, 159, 3, 35, "Text",ExpressionUUID->"c0690014-20ef-43aa-bbdc-ea53773707ff"],
+Cell[918, 30, 154, 3, 35, "Text",ExpressionUUID->"dc5a2c66-1051-4d64-b074-0ab09cb00849"],
+Cell[1075, 35, 353, 9, 30, "Input",ExpressionUUID->"15f3211d-72c1-4877-8838-ee495e7164cc"],
+Cell[CellGroupData[{
+Cell[1453, 48, 823, 21, 90, "Input",ExpressionUUID->"b8469a7c-ecb8-4fc4-97f5-8dcb211bf027"],
+Cell[2279, 71, 2743, 63, 129, "Output",ExpressionUUID->"efe11707-ce40-4f6a-843e-a505d5681820"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5059, 139, 357, 9, 30, "Input",ExpressionUUID->"585dee04-dae7-4e94-af00-bf8edc1e5989"],
+Cell[5419, 150, 190, 2, 34, "Output",ExpressionUUID->"9a455397-0082-4544-9c03-52884e40753a"]
+}, Open  ]],
+Cell[5624, 155, 341, 8, 30, "Input",ExpressionUUID->"0f35eb74-fbbe-4b0c-9ced-66a3623e0958"],
+Cell[CellGroupData[{
+Cell[5990, 167, 778, 21, 78, "Input",ExpressionUUID->"b99361e5-617a-4c12-883e-97bf2fccb068"],
+Cell[6771, 190, 2287, 53, 133, "Output",ExpressionUUID->"b125d6db-aa35-4e2b-88d5-7b5dba8f7904"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9095, 248, 776, 21, 78, "Input",ExpressionUUID->"4bb5e168-92b3-4bfc-9943-ecc5f72d5a1b"],
+Cell[9874, 271, 2287, 53, 133, "Output",ExpressionUUID->"27c095e9-80fe-4a4a-a1dd-c33200a9a84f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12198, 329, 381, 9, 30, "Input",ExpressionUUID->"e8b9eec7-63c1-42fa-825a-a8436f0e1783"],
+Cell[12582, 340, 212, 2, 34, "Output",ExpressionUUID->"8b8ae741-18b8-43eb-80cf-529f46f5b161"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12831, 347, 331, 8, 30, "Input",ExpressionUUID->"46d9d1df-8f00-4b8c-b56c-9b154f61fb0f"],
+Cell[13165, 357, 188, 2, 34, "Output",ExpressionUUID->"34104a93-af75-429d-a8d2-e634fa016611"]
+}, Open  ]]
+}
+]
+*)
+

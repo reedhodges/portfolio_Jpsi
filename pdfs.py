@@ -1,7 +1,6 @@
-# up quark pdf
-def f_u(x, mu):
-    return x**(-1) * (1-x)**3
+import pandas as pd
 
-# down quark pdf
-def f_d(x, mu):
-    return x**(-1) * (1-x)**3
+# read PDF csv files from the data folder
+df_u = pd.read_csv('pdf_data/uPDF.csv')
+df_d = pd.read_csv('pdf_data/dPDF.csv')
+df_g = pd.read_csv('pdf_data/gPDF.csv')
