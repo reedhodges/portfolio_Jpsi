@@ -49,8 +49,10 @@ y1 = [x*uPDF(x, 10) for x in x_range]
 y2 = [x*dPDF(x, 10) for x in x_range]
 y3 = [x*gPDF(x, 10)/10.0 for x in x_range]
 
-plt.semilogx(x_range, y1, label='u')
-plt.semilogx(x_range, y2, label='d')
-plt.semilogx(x_range, y3, label='g/10')
-plt.legend()
-plt.show()
+#plt.semilogx(x_range, y1, label='u')
+#plt.semilogx(x_range, y2, label='d')
+#plt.semilogx(x_range, y3, label='g/10')
+#plt.legend()
+#plt.show()
+
+print(uPDF(0.1, 10))
