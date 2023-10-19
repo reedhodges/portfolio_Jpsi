@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 import matplotlib.pyplot as plt
+import os
 
 # read PDF csv files from the data folder
 df_u = pd.read_csv('pdf_data/uPDF.csv')
@@ -47,4 +48,11 @@ plt.semilogx(x_range, y1, label='u')
 plt.semilogx(x_range, y2, label='d')
 plt.semilogx(x_range, y3, label='g/10')
 plt.legend()
-plt.show()
+#plt.show()
+
+# save figure
+cwd = os.getcwd()
+subdir = 'figures'
+filename = 'pdfs-fig.png'
+savepath = os.path.join(cwd, subdir, filename)
+plt.savefig(savepath, dpi=300)
