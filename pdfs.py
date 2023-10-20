@@ -47,6 +47,8 @@ y3 = (x_range * g_interp((x_range, Q_value)))/10.
 plt.semilogx(x_range, y1, label='u')
 plt.semilogx(x_range, y2, label='d')
 plt.semilogx(x_range, y3, label='g/10')
+plt.xlabel('x')
+plt.ylabel('x*f(x)')
 plt.legend()
 #plt.show()
 
