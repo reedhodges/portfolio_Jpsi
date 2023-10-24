@@ -68,7 +68,7 @@ class differential_cross_section:
                 y = Q**2/(x*S)
                 zt = 2-z
                 const = TO_PB*(1-y+y**2/2)*32*PI**3*z*ALPHA_EM**2*alpha_s(30)/(9*M*Q**6*zt**3)
-                pdf = g_interp((x*zt,Q))
+                pdf = g_interp((x,Q))
                 return const*pdf*gaussian_z(z)*gaussian_PT(PT)*O1S0OCT
             
             # longitudinally polarized J/psi
@@ -76,7 +76,7 @@ class differential_cross_section:
                 y = Q**2/(x*S)
                 zt = 2-z
                 const = TO_PB*(1-y+y**2/2)*32*PI**3*z*ALPHA_EM**2*alpha_s(30)/(9*M*Q**6*zt**3)
-                pdf = g_interp((x*zt,Q))
+                pdf = g_interp((x,Q))
                 return const*pdf*gaussian_z(z)*gaussian_PT(PT)*O1S0OCT / 3.
             
         # 3p0 color octet channel
@@ -90,7 +90,7 @@ class differential_cross_section:
                 zt = 2-z
                 ypoly = y**2*(8+z*(3*z-8)) + 8*(1-y)*zt - 2*(1-y)*z*zt**2
                 const = TO_PB*64*PI**3*z*ALPHA_EM**2*alpha_s(30)/(9*M**3*Q**6*zt**5)
-                pdf = g_interp((x*zt,Q))
+                pdf = g_interp((x,Q))
                 return const*ypoly*pdf*gaussian_z(z)*gaussian_PT(PT)*O3P0OCT
             
             # longitudinally polarized J/psi
@@ -99,7 +99,7 @@ class differential_cross_section:
                 zt = 2-z
                 ypoly = (2-y)**2-2*z*(1-y)
                 const = TO_PB*64*PI**3*z**3*ALPHA_EM**2*alpha_s(30)/(9*M**3*Q**6*zt**5)
-                pdf = g_interp((x*zt,Q))
+                pdf = g_interp((x,Q))
                 return const*ypoly*pdf*gaussian_z(z)*gaussian_PT(PT)*O3P0OCT
         
         # 3s1 color singlet channel
@@ -126,14 +126,24 @@ class differential_cross_section:
                 PTpoly = PT**2 / ((PT**2 + zb**2*M**2)**2)
                 pdf = g_interp((x,Q))
                 return const*(1-y+y**2/2.)*pdf*PTpoly*O3S1SING
+            
+def total_sigma_U(x, z, Q, PT):
+    d_sigma = differential_cross_section(S, O3S1SING, O1S0OCT, O3P0OCT, u_interp, d_interp, g_interp)
+    return d_sigma.FF.U(x, z, Q, PT) + d_sigma.PGF.oct1s0.U(x, z, Q, PT) + d_sigma.PGF.oct3p0.U(x, z, Q, PT) + d_sigma.PGF.sing3s1.U(x, z, Q, PT)
 
-d_sigma = differential_cross_section(S, O3S1SING, O1S0OCT, O3P0OCT, u_interp, d_interp, g_interp)
+def total_sigma_L(x, z, Q, PT):
+    d_sigma = differential_cross_section(S, O3S1SING, O1S0OCT, O3P0OCT, u_interp, d_interp, g_interp)
+    return d_sigma.FF.L(x, z, Q, PT) + d_sigma.PGF.oct1s0.L(x, z, Q, PT) + d_sigma.PGF.oct3p0.L(x, z, Q, PT) + d_sigma.PGF.sing3s1.L(x, z, Q, PT)
 
-print(d_sigma.FF.U(0.1, 0.5, 10., 1.))
-print(d_sigma.FF.L(0.1, 0.5, 10., 1.))
-print(d_sigma.PGF.oct1s0.U(0.1, 0.5, 10., 1.))
-print(d_sigma.PGF.oct1s0.L(0.1, 0.5, 10., 1.))
-print(d_sigma.PGF.oct3p0.U(0.1, 0.5, 10., 1.))
-print(d_sigma.PGF.oct3p0.L(0.1, 0.5, 10., 1.))
-print(d_sigma.PGF.sing3s1.U(0.1, 0.5, 10., 1.))
-print(d_sigma.PGF.sing3s1.L(0.1, 0.5, 10., 1.))
+#print(total_sigma_U(0.1, 0.5, 10., 1.))
+
+#d_sigma = differential_cross_section(S, O3S1SING, O1S0OCT, O3P0OCT, u_interp, d_interp, g_interp)
+
+#print(d_sigma.FF.U(0.1, 0.5, 10., 1.))
+#print(d_sigma.FF.L(0.1, 0.5, 10., 1.))
+#print(d_sigma.PGF.oct1s0.U(0.1, 0.5, 10., 1.))
+#print(d_sigma.PGF.oct1s0.L(0.1, 0.5, 10., 1.))
+#print(d_sigma.PGF.oct3p0.U(0.1, 0.5, 10., 1.))
+#print(d_sigma.PGF.oct3p0.L(0.1, 0.5, 10., 1.))
+#print(d_sigma.PGF.sing3s1.U(0.1, 0.5, 10., 1.))
+#print(d_sigma.PGF.sing3s1.L(0.1, 0.5, 10., 1.))

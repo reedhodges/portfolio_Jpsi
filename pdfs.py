@@ -31,30 +31,32 @@ def create_interpolator(df):
     # Create an interpolating function
     return RegularGridInterpolator((x_values, Q_values), f_values, method='linear')
 
+# the code below generates a basic plot of the PDFs
+
 # Compute interpolators
-u_interp = create_interpolator(df_u)
-d_interp = create_interpolator(df_d)
-g_interp = create_interpolator(df_g)
+#u_interp = create_interpolator(df_u)
+#d_interp = create_interpolator(df_d)
+#g_interp = create_interpolator(df_g)
 
 # x domain for plot
-x_range = np.linspace(0.01, 0.99, 100)
-Q_value = 10.
+#x_range = np.linspace(0.01, 0.99, 100)
+#Q_value = 10.
 
-y1 = x_range * u_interp((x_range, Q_value))
-y2 = x_range * d_interp((x_range, Q_value))
-y3 = (x_range * g_interp((x_range, Q_value)))/10.
+#y1 = x_range * u_interp((x_range, Q_value))
+#y2 = x_range * d_interp((x_range, Q_value))
+#y3 = (x_range * g_interp((x_range, Q_value)))/10.
 
-plt.semilogx(x_range, y1, label='u')
-plt.semilogx(x_range, y2, label='d')
-plt.semilogx(x_range, y3, label='g/10')
-plt.xlabel('x')
-plt.ylabel('x*f(x)')
-plt.legend()
+#plt.semilogx(x_range, y1, label='u')
+#plt.semilogx(x_range, y2, label='d')
+#plt.semilogx(x_range, y3, label='g/10')
+#plt.xlabel('x')
+#plt.ylabel('x*f(x)')
+#plt.legend()
 #plt.show()
 
 # save figure
-cwd = os.getcwd()
-subdir = 'figures'
-filename = 'pdfs-fig.png'
-savepath = os.path.join(cwd, subdir, filename)
-plt.savefig(savepath, dpi=300)
+#cwd = os.getcwd()
+#subdir = 'figures'
+#filename = 'pdfs-fig.png'
+#savepath = os.path.join(cwd, subdir, filename)
+#plt.savefig(savepath, dpi=300)
