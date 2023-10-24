@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from cross_sections import differential_cross_section, total_sigma_U, u_interp, d_interp, g_interp
 from constants import S, O3S1SING, O1S0OCT, O3P0OCT
+import os
 
 # functions to compute the percentage of d_sigma contributions from the various LDMEs
 class percent_contributions:
@@ -63,8 +64,6 @@ df = pd.DataFrame({
     'total': total_grid
     })
 
-print(df.describe())
-
 # the proper domain for PT is actually a function of z and Q, 
 # so need to remove the ones that violate the domain.
 # first need to define the bins in z and Q
@@ -80,4 +79,31 @@ condition = df['PT'] <= z_bin_min * Q_bin_min / 2.
 # now remove the rows that violate the condition
 df = df.loc[condition]
 
-print(df.describe())
+# remote outliers from the dataframe with Z-score of more than 3
+df['z_score_O3S1OCT'] = np.abs((df['percent_O3S1OCT'] - df['percent_O3S1OCT'].mean())/df['percent_O3S1OCT'].std())
+df['z_score_O1S0OCT'] = np.abs((df['percent_O1S0OCT'] - df['percent_O1S0OCT'].mean())/df['percent_O1S0OCT'].std())
+df['z_score_O3P0OCT'] = np.abs((df['percent_O3P0OCT'] - df['percent_O3P0OCT'].mean())/df['percent_O3P0OCT'].std())
+df['z_score_O3S1SING'] = np.abs((df['percent_O3S1SING'] - df['percent_O3S1SING'].mean())/df['percent_O3S1SING'].std())
+
+df = df.loc[df['z_score_O3S1OCT'] <= 3.]
+df = df.loc[df['z_score_O1S0OCT'] <= 3.]
+df = df.loc[df['z_score_O3P0OCT'] <= 3.]
+df = df.loc[df['z_score_O3S1SING'] <= 3.]
+
+# drop the z-score columns
+df = df.drop(columns=['z_score_O3S1OCT', 'z_score_O1S0OCT', 'z_score_O3P0OCT', 'z_score_O3S1SING'])
+
+# remove rows with negative percentages or percentages greater than 1
+df = df.loc[(0. <= df['percent_O3S1OCT']) & (df['percent_O3S1OCT'] <= 1.)]
+df = df.loc[(0. <= df['percent_O1S0OCT']) & (df['percent_O1S0OCT'] <= 1.)]
+df = df.loc[(0. <= df['percent_O3P0OCT']) & (df['percent_O3P0OCT'] <= 1.)]
+df = df.loc[(0. <= df['percent_O3S1SING']) & (df['percent_O3S1SING'] <= 1.)]
+
+#print(df.describe())
+
+# save dataframe to csv
+cwd = os.getcwd()
+subdir = 'cs_data'
+filename = 'percent_contributions.csv'
+savepath = os.path.join(cwd, subdir, filename)
+df.to_csv(savepath, index=False)
