@@ -3,12 +3,6 @@ import pandas as pd
 from cross_sections import differential_cross_section, total_sigma_U, u_interp, d_interp, g_interp
 from constants import S, O3S1SING, O1S0OCT, O3P0OCT
 
-# domains for the kinematic variables
-x_domain = np.linspace(0.1, 0.99, 10)
-z_domain = np.linspace(0.1, 0.8, 10)
-Q_domain = np.linspace(10., 50., 10)
-PT_domain = np.linspace(0.01, 6., 50)
-
 # functions to compute the percentage of d_sigma contributions from the various LDMEs
 class percent_contributions:
     def __init__(self, S: float, O3S1SING: float, O1S0OCT: float, O3P0OCT: float, u_interp, d_interp, g_interp):
@@ -36,6 +30,12 @@ class percent_contributions:
     # percentage of d_sigma from the 3s1 color singlet channel
     def from_O3S1SING(self, x, z, Q, PT):
         return self.d_sigma.PGF.sing3s1.U(x, z, Q, PT) / total_sigma_U(x, z, Q, PT)
+    
+# domains for the kinematic variables
+x_domain = np.linspace(0.1, 0.99, 10)
+z_domain = np.linspace(0.1, 0.8, 10)
+Q_domain = np.linspace(10., 50., 10)
+PT_domain = np.linspace(0.01, 6., 50)
 
 # generate grids
 x_grid, z_grid, Q_grid, PT_grid = np.meshgrid(x_domain, z_domain, Q_domain, PT_domain)
@@ -63,6 +63,21 @@ df = pd.DataFrame({
     'total': total_grid
     })
 
-print(df.head)
 print(df.describe())
 
+# the proper domain for PT is actually a function of z and Q, 
+# so need to remove the ones that violate the domain.
+# first need to define the bins in z and Q
+def z_bin(z):
+    return np.piecewise(z, [z < 0.4, z >= 0.4], [0.1, 0.4])
+def Q_bin(Q):
+    return np.piecewise(Q, [Q < 30., Q >= 30.], [10., 30.])
+# apply these piecewise functions to the dataframe values
+z_bin_min = df['z'].apply(lambda x: z_bin(x))
+Q_bin_min = df['Q'].apply(lambda x: Q_bin(x))
+# now define a condition on PT
+condition = df['PT'] <= z_bin_min * Q_bin_min / 2.
+# now remove the rows that violate the condition
+df = df.loc[condition]
+
+print(df.describe())
