@@ -33,10 +33,10 @@ class percent_contributions:
         return self.d_sigma.PGF.sing3s1.U(x, z, Q, PT) / total_sigma_U(x, z, Q, PT)
     
 # domains for the kinematic variables
-x_domain = np.linspace(0.1, 0.99, 10)
-z_domain = np.linspace(0.1, 0.8, 10)
-Q_domain = np.linspace(10., 50., 10)
-PT_domain = np.linspace(0.01, 6., 50)
+x_domain = np.linspace(0.1, 0.99, 50)
+z_domain = np.linspace(0.1, 0.8, 50)
+Q_domain = np.linspace(10., 50., 50)
+PT_domain = np.linspace(0.01, 6., 100)
 
 # generate grids
 x_grid, z_grid, Q_grid, PT_grid = np.meshgrid(x_domain, z_domain, Q_domain, PT_domain)
