@@ -99,11 +99,7 @@ df = df.loc[(0. <= df['percent_O1S0OCT']) & (df['percent_O1S0OCT'] <= 1.)]
 df = df.loc[(0. <= df['percent_O3P0OCT']) & (df['percent_O3P0OCT'] <= 1.)]
 df = df.loc[(0. <= df['percent_O3S1SING']) & (df['percent_O3S1SING'] <= 1.)]
 
-# normalize the Q and PT columns to be between 0 and 1
-df['Q'] = (df['Q'] - df['Q'].min()) / (df['Q'].max() - df['Q'].min())
-df['PT'] = (df['PT'] - df['PT'].min()) / (df['PT'].max() - df['PT'].min())
-
-#print(df.describe())
+print(df.describe())
 
 # save dataframe to csv
 cwd = os.getcwd()
