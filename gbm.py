@@ -2,6 +2,7 @@ from skmultilearn.problem_transform import LabelPowerset
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import xgboost as xgb
+import matplotlib.pyplot as plt
 
 from data_processing import process_data
 
@@ -34,3 +35,7 @@ model.fit(X_train, Y_train)
 Y_pred = model.predict(X_test)
 accuracy = accuracy_score(Y_test, Y_pred)
 print(f"Accuracy: {accuracy}")
+
+importance = model.feature_importances_
+xgb.plot_importance(model)
+plt.show()

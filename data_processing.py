@@ -15,12 +15,12 @@ def destroy_data(data, col, percent_to_destroy=0.01):
     data.loc[rows_to_destroy, col] = np.nan    
     return data
 
-def add_noise(data, col):
+def add_noise(data, col, noise_threshold=0.2):
     '''
-    Adds noise to a column by adding or subtracting up to 10% of the value.
+    Adds noise to a column by adding or subtracting up to x% of the value.
     '''
     data = data.copy()
-    noise = np.random.uniform(-0.1, 0.1, data[col].shape)
+    noise = np.random.uniform(-1*noise_threshold, noise_threshold, data[col].shape)
     data[col] = data[col] * (1 + noise)
     return data
 
