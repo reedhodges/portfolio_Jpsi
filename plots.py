@@ -19,8 +19,9 @@ df = df[(df['x'] == x) & (df['z'] == z) & (df['Q'] == Q)]
 
 # plot the cross section as a function of PT
 plt.plot(df['PT'], df['oct3s1_U_grid'], 'o')
-plt.xlabel('PT')
-plt.ylabel('oct3s1_U_grid')
+plt.xlabel('PT (GeV)')
+plt.ylabel('d sigma / d PT^2 (pb/GeV^2)')
+plt.title(f'Color octet 3s1 diff. cross section \n x = {round(x,2)}, z = {round(z,2)}, Q = {round(Q,2)} GeV')
 plt.show()
 
 
