@@ -22,7 +22,7 @@ This portfolio project explores the use of machine learning in the context of pa
 - Investigate feature importance and anomaly detection in the dataset.
 
 ## Background
-J/ψ meson production in semi-inclusive deep inelastic scattering is examined, exploring various production mechanisms and their influence on the production cross section.
+J/ψ meson production in semi-inclusive deep inelastic scattering is examined, exploring various production mechanisms, and their contribution to the total cross section across different regions of phase space.
 
 ## Data
 The dataset is derived from theoretical predictions of J/ψ production cross sections. The theoretical expressions are derived in an [academic paper](https://arxiv.org/abs/2310.13737) by me and my co-authors.
